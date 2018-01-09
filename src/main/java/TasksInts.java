@@ -29,19 +29,19 @@ public class TasksInts {
     }
 
     public Integer findMaxElement(int[] ints) {
-        throw new UnsupportedOperationException("Todo.");
+        return IntStream.of(ints).max().getAsInt();
     }
 
     public Integer findMinElement(int[] ints) {
-        throw new UnsupportedOperationException("Todo.");
+        return IntStream.of(ints).min().getAsInt();
     }
 
     public Integer findMinElement(int[] ints, int skippedAmount) {
-        throw new UnsupportedOperationException("Todo.");
+        return IntStream.of(ints).sorted().skip(skippedAmount).min().getAsInt();
     }
 
     public Integer sum(int[] ints) {
-        throw new UnsupportedOperationException("Todo.");
+        return IntStream.of(ints).sum();
     }
 
     private int[] getArrayOfInts() {

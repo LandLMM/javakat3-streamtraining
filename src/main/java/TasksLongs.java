@@ -31,19 +31,23 @@ public class TasksLongs {
     }
 
     public Long findMaxElement(List<Long> longs) {
-        throw new UnsupportedOperationException("Todo.");
+        return longs.stream().reduce(Long::max).get();
     }
 
     public Long findMinElement(List<Long> longs) {
-        throw new UnsupportedOperationException("Todo.");
+        return longs.stream().reduce(Long::min).get();
     }
 
     public Double findMedianElement(List<Long> longs) {
-        throw new UnsupportedOperationException("Todo.");
+        if (longs.size() % 2 == 0) {
+            return longs.stream().mapToLong(v -> v).sorted().skip(longs.size() / 2 - 1).limit(2).average().getAsDouble();
+        } else {
+            return Double.valueOf(longs.stream().mapToLong(v -> v).sorted().skip(longs.size() / 2).findFirst().getAsLong());
+        }
     }
 
     public Long countLongsGreaterThen(List<Long> longs, Long minimalLongValue) {
-        throw new UnsupportedOperationException("Todo.");
+        return longs.stream().filter(val -> val >= minimalLongValue).count();
     }
 
     private List<Long> getListOfLongs() {

@@ -25,23 +25,23 @@ public class TasksLists {
     }
 
     private List<String> removeDuplicates(List<String> listOfString) {
-        throw new UnsupportedOperationException("Todo.");
+        return listOfString.stream().distinct().collect(Collectors.toList());
     }
 
     private String concatenateStrings(List<String> listOfString) {
-        throw new UnsupportedOperationException("Todo.");
+        return listOfString.stream().reduce(String::concat).get();
     }
 
     private List<String> filterByPrefix(List<String> listOfString, String prefix) {
-        throw new UnsupportedOperationException("Todo.");
+        return listOfString.stream().filter(val -> val.startsWith(prefix)).collect(Collectors.toList());
     }
 
     private List<String> filterBySuffix(List<String> listOfString, String suffix) {
-        throw new UnsupportedOperationException("Todo.");
+        return listOfString.stream().filter(val -> val.endsWith(suffix)).collect(Collectors.toList());
     }
 
     private Map<Long,List<String>> groupByLevelValue(List<String> listOfString) {
-        throw new UnsupportedOperationException("Todo.");
+        return listOfString.stream().filter(val -> val.startsWith("Level")).collect(Collectors.groupingBy(val -> Long.parseLong(val.substring(6,7)), Collectors.toList()));
     }
 
     private List<String> getListOfString() {

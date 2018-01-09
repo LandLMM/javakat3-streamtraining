@@ -14,11 +14,11 @@ public class TasksMaps {
     }
 
     private List<String> flattenPreserveDuplicates(Map<String, List<String>> mapOfString) {
-        throw new UnsupportedOperationException("Todo.");
+        return mapOfString.values().stream().flatMap(List::stream).collect(Collectors.toList());
     }
 
     private List<String> flattenNoDuplicates(Map<String, List<String>> mapOfString) {
-        throw new UnsupportedOperationException("Todo.");
+        return mapOfString.values().stream().flatMap(List::stream).distinct().collect(Collectors.toList());
     }
 
     private Map<String,List<String>> getMapOfString() {
